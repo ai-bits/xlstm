@@ -1,3 +1,4 @@
+# 250217: Needs a code change in xLSTM to work on multi-GPU!
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 import torch
 import time
