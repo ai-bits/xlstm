@@ -8,6 +8,8 @@ xLSTM inference first working examples<br>
 Tested on Ubuntu 24.04 - to be specific.<br>
 If you run into a Torch 2.6.0 or a multi-GPU problem, take the kludge install below!
 
+20250222 2320 `hello-torch-gpu2-ui.py` WORKING! No CUDA crash. Leave `hello-torch-gpu2-ui1.py` for reference.
+
 20250222 1015 With the help of OpenAI's 4o I got steaming almost working in `hello-torch-gpu2-ui1.py` - until CUDA crashes. (guess out of memory)<br>
 Mind: You need >32GB VRAM to run this. I hope someone from NX-AI will react before I decease to set up an inference server. (I am not aware of one.)
 
