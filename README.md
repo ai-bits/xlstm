@@ -6,7 +6,10 @@ xLSTM inference first working examples<br>
 `pip install git+https://github.com/NX-AI/transformers.git@integrate_xlstm#egg=transformers`
 
 Tested on Ubuntu 24.04 - to be specific.<br>
-If you run into a Torch 2.6.0 or a multi-GPU problem, take the kludge below!
+If you run into a Torch 2.6.0 or a multi-GPU problem, take the kludge install below!
+
+20250222 1015 With the help of OpenAI's 4o I got steaming almost working in `hello-torch-gpu2-ui1.py` - until CUDA crashes. (guess out of memory)<br>
+Mind: You need >32GB VRAM to run this. I hope someone from NX-AI will react before I decease to set up an inference server. (I am not aware of one.)
 
 20250215 2230 This is the quickest and dirtiest example imaginable to finally see working inference from the xLSTM-7b model.
 If you want to get your fingers dirty, `examples/hello-torch-cpu.py` works on the CPU, but I guess you need more than 32GB RAM. More than available on typical machines.
