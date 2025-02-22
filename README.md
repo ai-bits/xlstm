@@ -32,5 +32,5 @@ Be patient, the sample out (one chunk, no streaming) took 5 minutes (for 1k toke
 `pip install torch==2.5.1+cu124 --extra-index-url https://download.pytorch.org/whl/cu124 #Torch INCL! CUDA`<br>
 `export CUDA_HOME=/home/gy/anaconda3/pkgs #and add to .bashrc`<br>
 
-If you are curious re the code changes, have a look in the xlstm-fork repo in `xlstm/xlstm_large/model.py` lines 504 and 508.<br>
+If you are curious re the code changes, have a look in the [AI-bits/xlstm-fork repo](https://github.com/ai-bits/xlstm-fork) in `xlstm/xlstm_large/model.py` lines 504 and 508.<br>
 Looks simple once you found it out. ;-)
