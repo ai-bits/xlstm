@@ -8,6 +8,10 @@ xLSTM inference first working examples<br>
 Tested on Ubuntu 24.04 - to be specific.<br>
 If you run into a Torch 2.6.0 or a multi-GPU problem, take the kludge install below!
 
+20250223 2325 I'm pretty underwhelmed by o3-mini-high's optimizations in `hello-torch-gpu2-ui2.py`.<br>
+Output a little faster, but still slows down with the length of the text.<br>
+And after optimizing speed a bit, output was messed up in variants like 4o's. (jerky 50 char batches; word-by-word, but no spaces; no paragraphs;...)
+
 20250222 2320 `hello-torch-gpu2-ui.py` WORKING! No CUDA crash. Leave `hello-torch-gpu2-ui1.py` for reference.
 
 20250222 1015 With the help of OpenAI's 4o I got steaming almost working in `hello-torch-gpu2-ui1.py` - until CUDA crashes. (guess out of memory)<br>
