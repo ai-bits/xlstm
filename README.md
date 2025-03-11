@@ -24,20 +24,21 @@ Be patient, the 500 token sample out (one chunk, no streaming) took 5 minutes on
 
 `git clone https://github.com/ai-bits/xlstm-fork`<br>
 `cd xlstm-fork`<br>
-`conda create -n xlstm python=3.11 #conda remove -n xlstm --all #get rid of old env`<br>
+`conda create -n xlstm python=3.11` #conda remove -n xlstm --all #get rid of old env<br>
 `conda activate xlstm`<br>
-`pip install xlstm #pip install -e . #SEEMS TO BE A PROBLEM as of 20250301!!! you must do the 2-line code change for multi-GPU manually!!!`<br>
-`pip install mlstm_kernels #all 'Requirement already satisfied' #Included in the xlstm code and redundant??`<br>
+`pip install xlstm` #pip install -e . #SEEMS TO BE A PROBLEM as of 20250301!!! you must do the 2-line code change for multi-GPU manually!!!<br>
+`pip install mlstm_kernels` #all 'Requirement already satisfied' #Included in the xlstm code and redundant??<br>
 `pip install git+https://github.com/NX-AI/transformers.git@integrate_xlstm#egg=transformers`<br>
-`pip install accelerate>=0.26.0 #forgotten requirement`<br>
-`#kludge for Torch 2.6.0 incompatibility until the code is fixed:`<br>
-`pip uninstall torch #NOT NEEDED, so no uninstall: torchvision torchaudio<br>
-`pip install torch==2.5.1+cu124 --extra-index-url https://download.pytorch.org/whl/cu124 #Torch INCL! CUDA`<br>
-`export CUDA_HOME=~/anaconda3/pkgs #and add to .bashrc`<br>
+`pip install accelerate>=0.26.0` #forgotten requirement<br>
+#kludge for Torch 2.6.0 incompatibility until the code is fixed:<br>
+`pip uninstall torch` #no uninstall for torchvision & torchaudio as it was not installed<br>
+#see https://pytorch.org/get-started/previous-versions/ for torch 2.5.1 CPU & GPU<br>
+`pip install torch==2.5.1+cu124 --extra-index-url https://download.pytorch.org/whl/cu124` #Torch INCL! CUDA<br>
+`export CUDA_HOME=~/anaconda3/pkgs` #and add to .bashrc<br>
 
 The code changes for multi-GPU are in the [AI-bits/xlstm-fork repo](https://github.com/ai-bits/xlstm-fork) in `xlstm/xlstm_large/model.py` lines 504 and 508.<br>
-`  x = x + x_mlstm.to(x.device) #x = x + x_mlstm #gue22 20250217
-`  x = x + x_ffn.to(x.device) #x = x + x_ffn #gue22 20250217`
+`  x = x + x_mlstm.to(x.device) #x = x + x_mlstm #gue22 20250217`<br>
+`  x = x + x_ffn.to(x.device) #x = x + x_ffn #gue22 20250217`<br>
 Looks simple once you found it out. ;-)
 As there is a problem with `pip install -e .` you must change the two lines manually after the installation in<br>
 `anaconda3/envs/xlstm/lib/python3.11/site-packages/xlstm/xlstm_large/model.py`
