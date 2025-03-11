@@ -18,9 +18,11 @@ If you want to get your fingers dirty, `examples/hello-torch-cpu.py` works on th
 
 Be patient, the 500 token sample out (one chunk, no streaming) took 5 minutes on my Xeon CPU, but >32GB RAM are easier to find than >32GB VRAM on one card.
 
-20250217 **Got multi-GPU (dual) inference to work on my 2 x 20GB RTX 4000 Ada 256GB Xeon machine, but `pip install -e .` does not work as expected, multi-GPU needs an xLSTM code change and a Torch version problem cropped up.**
+20250217 **Got multi-GPU (dual) inference to work on my 2 x 20GB RTX 4000 Ada 256GB Xeon machine, but `pip install -e .` does not work as expected, multi-GPU needs an xLSTM code change and a Torch version 2.6.0 v 2.5.1 problem cropped up.**<br>
+Inference on GPU on Windows throws No module named 'triton', though no Triton funcs are explicitly used.<br>
+**WSL (Ubuntu) turns out to be an overlooked CUDA gem on Windows! Conveniently try it instead of VMs (GPU problem) or booting Linux!**
 
-20250220 **If you want to do (multi-GPU) inference you need a Python environment like that:**<br>
+20250220 **If you want to do (multi-GPU) inference you need a Python environment ON LINUX OR WSL (!) like that:**<br>
 
 `git clone https://github.com/ai-bits/xlstm-fork`<br>
 `cd xlstm-fork`<br>
