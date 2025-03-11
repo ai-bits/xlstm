@@ -14,7 +14,8 @@ And after optimizing speed a bit, output was messed up in suggested variants. (j
 Mind: You need >32GB VRAM to run this. I hope someone from NX-AI will react before I decease to set up an inference server. (I am not aware of one.)
 
 20250215 2230 This is the quickest and dirtiest example imaginable to finally see working inference from the xLSTM-7b model.
-If you want to get your fingers dirty, `examples/hello-torch-cpu.py` works on the CPU, but I guess you need more than 32GB RAM. More than available on typical machines.
+If you want to get your fingers dirty, `examples/hello-torch-cpu.py` works on the CPU **on (WSL) Ubuntu**, but I guess you need more than 32GB RAM. More than available on typical machines.<br>
+(I thought I had it working on Windows too, but after the nth reinstall (Torch cpuonly) it still throws No module named 'triton'. And I don't want to get into the weeds of a Docker Triton install or so.)
 
 Be patient, the 500 token sample out (one chunk, no streaming) took 5 minutes on my Xeon CPU, but >32GB RAM are easier to find than >32GB VRAM on one card.
 
